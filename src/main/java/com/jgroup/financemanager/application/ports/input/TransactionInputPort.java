@@ -1,4 +1,9 @@
-package com.jgroup.financemanager.application.ports.imput;
+package com.jgroup.financemanager.application.ports.input;
 
-public interface TransactionImputPort {
+import com.jgroup.financemanager.application.domain.model.Transaction;
+import com.jgroup.financemanager.application.dto.TransactionDTO;
+
+public interface TransactionInputPort {
+
+    Transaction create(TransactionDTO dto);
 }

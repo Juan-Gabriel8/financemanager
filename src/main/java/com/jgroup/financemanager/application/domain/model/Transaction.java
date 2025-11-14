@@ -2,6 +2,7 @@ package com.jgroup.financemanager.application.domain.model;
 
 import com.jgroup.financemanager.application.domain.enums.CategoryEnum;
 import com.jgroup.financemanager.application.domain.enums.TypeTransactionEnum;
+import com.jgroup.financemanager.application.domain.model.User;
 
 import java.time.LocalDate;
 
@@ -11,7 +12,7 @@ public class Transaction {
 
     private LocalDate date;
     private Double value;
-    private TypeTransactionEnum typeTransaction;
+    private String typeTransaction;
     private CategoryEnum category;
     private User user;
 
@@ -19,7 +20,7 @@ public class Transaction {
 
     }
 
-    public Transaction(String id, LocalDate date, Double value, TypeTransactionEnum typeTransaction, CategoryEnum category, User user) {
+    public Transaction(String id, LocalDate date, Double value, String typeTransaction, CategoryEnum category, User user) {
         if (value <= 0) {
             throw new IllegalArgumentException("Valor deve ser positivo");
         }
@@ -29,6 +30,9 @@ public class Transaction {
         this.typeTransaction = typeTransaction;
         this.category = category;
         this.user = user;
+    }
+
+    public Transaction(LocalDate date, Double value, TypeTransactionEnum typeTransactionEnum, CategoryEnum categoryEnum, User user) {
     }
 
     public LocalDate getDate() {
@@ -55,11 +59,11 @@ public class Transaction {
         this.value = value;
     }
 
-    public TypeTransactionEnum getTypeTransaction() {
+    public String getTypeTransaction() {
         return typeTransaction;
     }
 
-    public void setTypeTransaction(TypeTransactionEnum typeTransaction) {
+    public void setTypeTransaction(String typeTransaction) {
         this.typeTransaction = typeTransaction;
     }
 
