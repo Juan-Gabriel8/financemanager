@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/v1/transactions")
+@RequestMapping("/v1/api")
 public class TransactionController {
 
     private final TransactionInputPort transactionInputPort;
@@ -18,7 +18,7 @@ public class TransactionController {
         this.transactionInputPort = transactionInputPort;
     }
 
-    @PostMapping
+    @PostMapping("/transaction")
     public Transaction create(@RequestBody TransactionDTO dto) {
         return transactionInputPort.create(dto);
     }
