@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/finance_db
+    username: finance_user
+    password: finance_pass
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update   # cria/atualiza tabelas automaticamente (bom para dev, em prod use 'validate')
+    show-sql: true       # mostra SQL no console
+    properties:
+      hibernate:
+        format_sql: true # deixa SQL formatado
+
+  # Configuração de timezone (opcional, mas recomendado)
+  jackson:
+    time-zone: America/Sao_Paulo
+
+server:
+  port: 8081  # se quiser rodar em porta diferente da API de login
