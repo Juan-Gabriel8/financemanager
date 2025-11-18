@@ -1,8 +1,10 @@
 package com.jgroup.financemanager.application.domain.model;
 
+import java.util.UUID;
+
 public class User {
 
-    private Long id;
+    private UUID id;
     private String name;
     private String email;
     private String cellphone;
@@ -12,7 +14,7 @@ public class User {
 
     }
 
-    public User(Long id, String name, String email, String cellphone, String password) {
+    public User(UUID id, String name, String email, String cellphone, String password) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -20,11 +22,11 @@ public class User {
         this.password = password;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

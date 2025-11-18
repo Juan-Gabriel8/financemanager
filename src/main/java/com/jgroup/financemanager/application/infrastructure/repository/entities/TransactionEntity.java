@@ -23,5 +23,7 @@ public class TransactionEntity {
     @Enumerated(EnumType.STRING)
     private TypeTransactionEnum typeTransaction;
     private CategoryEnum category;
-    private User user;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
 }
