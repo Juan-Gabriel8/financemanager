@@ -4,10 +4,11 @@ import com.jgroup.financemanager.application.domain.enums.CategoryEnum;
 import com.jgroup.financemanager.application.domain.enums.TypeTransactionEnum;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class Transaction {
 
-    private final String id;
+    private final UUID id;
     private LocalDate date;
     private Double value;
     private TypeTransactionEnum typeTransaction;
@@ -18,7 +19,7 @@ public class Transaction {
         if (value <= 0) {
             throw new IllegalArgumentException("Valor deve ser positivo");
         }
-        this.id = java.util.UUID.randomUUID().toString();
+        this.id = java.util.UUID.randomUUID();
         this.date = date;
         this.value = value;
         this.typeTransaction = typeTransactionEnum;
@@ -27,7 +28,7 @@ public class Transaction {
     }
 
 
-    public Transaction(String id, LocalDate date, Double value, TypeTransactionEnum typeTransaction,
+    public Transaction(UUID id, LocalDate date, Double value, TypeTransactionEnum typeTransaction,
                        CategoryEnum category, User user) {
 
         if (value <= 0) {
@@ -50,7 +51,7 @@ public class Transaction {
         this.date = date;
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 

@@ -1,6 +1,7 @@
 package com.jgroup.financemanager.application.infrastructure.repository.mapper;
 
 import com.jgroup.financemanager.application.domain.model.Transaction;
+import com.jgroup.financemanager.application.domain.model.User;
 import com.jgroup.financemanager.application.infrastructure.repository.entities.TransactionEntity;
 
 public class TransactionMapper {
@@ -12,18 +13,19 @@ public class TransactionMapper {
         entity.setValue(domain.getValue());
         entity.setTypeTransaction(domain.getTypeTransaction());
         entity.setCategory(domain.getCategory());
-        entity.setUser(domain.getUser());
+        entity.setUser(UserMapper.toEntity(domain.getUser()));
         return entity;
     }
 
     public static Transaction toDomain(TransactionEntity entity) {
+        User user = UserMapper.toDomain(entity.getUser());
         return new Transaction(
                 entity.getId(),
                 entity.getDate(),
                 entity.getValue(),
                 entity.getTypeTransaction(),
                 entity.getCategory(),
-                entity.getUser()
+                user
         );
 
     }

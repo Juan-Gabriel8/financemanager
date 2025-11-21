@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Table(name = "transactions")
@@ -17,7 +18,7 @@ public class TransactionEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private UUID id;
     private LocalDate date;
     private Double value;
     @Enumerated(EnumType.STRING)
