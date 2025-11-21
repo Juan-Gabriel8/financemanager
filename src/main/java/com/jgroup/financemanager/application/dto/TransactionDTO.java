@@ -17,7 +17,7 @@ import java.time.LocalDate;
 @Setter
 public class TransactionDTO {
     private LocalDate date;
-    private Double value;
+    private Double amount;
     private TypeTransactionEnum typeTransaction;
     private CategoryEnum categoryEnum;
     private User user;

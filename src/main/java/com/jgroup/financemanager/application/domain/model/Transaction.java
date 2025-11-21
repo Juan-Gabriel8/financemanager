@@ -10,34 +10,34 @@ public class Transaction {
 
     private final UUID id;
     private LocalDate date;
-    private Double value;
+    private Double amount;
     private TypeTransactionEnum typeTransaction;
     private CategoryEnum category;
     private User user;
 
-    public Transaction(LocalDate date, Double value, TypeTransactionEnum typeTransactionEnum, CategoryEnum categoryEnum, User user) {
-        if (value <= 0) {
+    public Transaction(LocalDate date, Double amount, TypeTransactionEnum typeTransactionEnum, CategoryEnum categoryEnum, User user) {
+        if (amount <= 0) {
             throw new IllegalArgumentException("Valor deve ser positivo");
         }
         this.id = java.util.UUID.randomUUID();
         this.date = date;
-        this.value = value;
+        this.amount = amount;
         this.typeTransaction = typeTransactionEnum;
         this.category = categoryEnum;
         this.user = user;
     }
 
 
-    public Transaction(UUID id, LocalDate date, Double value, TypeTransactionEnum typeTransaction,
+    public Transaction(UUID id, LocalDate date, Double amount, TypeTransactionEnum typeTransaction,
                        CategoryEnum category, User user) {
 
-        if (value <= 0) {
+        if (amount <= 0) {
             throw new IllegalArgumentException("Valor deve ser positivo");
         }
 
         this.id = id;  // ← Usado quando reconstruindo do repositório (padrão DDD)
         this.date = date;
-        this.value = value;
+        this.amount = amount;
         this.typeTransaction = typeTransaction;
         this.category = category;
         this.user = user;
@@ -55,12 +55,12 @@ public class Transaction {
         return id;
     }
 
-    public Double getValue() {
-        return value;
+    public Double getAmount() {
+        return amount;
     }
 
-    public void setValue(Double value) {
-        this.value = value;
+    public void setAmount(Double amount) {
+        this.amount = amount;
     }
 
     public TypeTransactionEnum getTypeTransaction() {

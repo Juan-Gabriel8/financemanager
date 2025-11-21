@@ -10,9 +10,9 @@ public class TransactionMapper {
         TransactionEntity entity = new TransactionEntity();
         entity.setId(domain.getId());
         entity.setDate(domain.getDate());
-        entity.setValue(domain.getValue());
+        entity.setValue(domain.getAmount());
         entity.setTypeTransaction(domain.getTypeTransaction());
-        entity.setCategory(domain.getCategory());
+        entity.setCategoryEnum(domain.getCategory());
         entity.setUser(UserMapper.toEntity(domain.getUser()));
         return entity;
     }
@@ -24,7 +24,9 @@ public class TransactionMapper {
                 entity.getDate(),
                 entity.getValue(),
                 entity.getTypeTransaction(),
-                entity.getCategory(),
+                entity.getCategoryEnum()
+
+                ,
                 user
         );
 

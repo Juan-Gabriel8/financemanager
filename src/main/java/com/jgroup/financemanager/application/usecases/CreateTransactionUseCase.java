@@ -7,7 +7,6 @@ import com.jgroup.financemanager.application.ports.input.TransactionInputPort;
 import com.jgroup.financemanager.application.ports.output.TransactionOutputPort;
 import org.springframework.stereotype.Component;
 
-@Component
 public class CreateTransactionUseCase implements TransactionInputPort {
 
     private final TransactionOutputPort transactionOutputPort;

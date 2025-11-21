@@ -19,11 +19,17 @@ public class TransactionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
+
     private LocalDate date;
-    private Double value;
+
+    private Double amount;
+
     @Enumerated(EnumType.STRING)
+    @Column(name = "type_transaction")
     private TypeTransactionEnum typeTransaction;
-    private CategoryEnum category;
+
+    private CategoryEnum categoryEnum;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity user;

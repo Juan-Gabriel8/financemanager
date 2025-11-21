@@ -8,7 +8,7 @@ public class TransactionService {
 
         return new Transaction(
                 dto.getDate(),
-                dto.getValue(),
+                dto.getAmount(),
                 dto.getTypeTransaction(),
                 dto.getCategoryEnum(),
                 dto.getUser()
